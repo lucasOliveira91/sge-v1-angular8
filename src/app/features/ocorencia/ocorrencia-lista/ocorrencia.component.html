@@ -1,0 +1,30 @@
+<app-header-breadcrumb></app-header-breadcrumb>
+<p-panel header="Listagem de Ocorrências">
+
+    <div class="p-grid">
+        <div class="p-col"></div>
+        <div class="p-col"></div>
+        <div class="p-col-2">
+            <button pButton type="button" label="Incluir" [routerLink]="'ocorrencia'" class="ui-button-raised"></button>
+        </div>
+    </div>
+
+    <p-table [value]="ocorrencias" [paginator]="true" [rows]="pageSize">
+        <ng-template pTemplate="header">
+            <tr>
+                <th *ngFor="let col of columns">
+                    {{col.header}}
+                </th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-ocorrencia>
+            <tr>
+                <td *ngFor="let col of columns">
+                    <div *ngIf="col.field != 'dhOcorrencia'">{{ocorrencia[col.field]}}</div>
+                    <div *ngIf="col.field == 'dhOcorrencia'">{{ocorrencia[col.field] | date: 'dd/MM/yyyy HH:mm'}}</div>
+
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+</p-panel>

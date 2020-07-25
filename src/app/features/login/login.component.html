@@ -1,0 +1,44 @@
+<div class="login-panel tema-escolar">
+  <div class="language-menu">
+  </div>
+  <div class="p-grid p-nogutter p-justify-center p-align-center" style="height:100%">
+    <div class="p-xl-3 p-lg-6 p-md-8 p-sm-10">
+      <p-panel header="SGE - Login">
+        <form [formGroup]="form" novalidate>
+          <div class="p-grid p-justify-center p-align-center">
+            <!-- <div class="p-xl-6 p-lg-6 p-md-8 p-sm-10">
+            <img src="assets/images/logo-large.png" class="login-logo">
+          </div> -->
+            <div class="p-col-12">
+              <div class="ui-inputgroup">
+                <span class="ui-inputgroup-addon"><i class="fa fa-user"></i></span>
+                <input id="input-username" type="text" size="30" pInputText formControlName="j_username"
+                  placeholder="Usuário">
+              </div>
+            </div>
+            <div class="p-col-12">
+              <div class="ui-inputgroup">
+                <span class="ui-inputgroup-addon"><i class="fa fa-key"></i></span>
+                <input id="input-password" type="password" size="30" pInputText formControlName="j_password"
+                  placeholder="Senha">
+              </div>
+            </div>
+            <div class="p-col-12 text-center">
+              <a>Forgot Password?</a>
+            </div>
+          </div>
+          <div class="p-grid">
+            <div class="p-col-12">
+              <button pButton type="button" label="Login" class="ui-button-raised" [disabled]="form.invalid"
+                (click)="onClickLogin()"></button>
+            </div>
+          </div>
+        </form>
+      </p-panel>
+      <div class="extra-page-footer">
+        <div>2020 - Sistema de Gestão Escolar.</div>
+        <div>Versão : {{version}}</div>
+      </div>
+    </div>
+  </div>
+</div>
