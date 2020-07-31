@@ -16,11 +16,10 @@ import { FooterComponent } from 'src/app/shared/layout/footer/footer.component';
 import { UserIdleModule } from 'angular-user-idle';
 import { HttpClientModule, HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppCommonModule } from 'src/app/app.common.module';
-import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { ErrorInterceptor } from './core/config/error.interceptor';
 import { AuthInterceptor } from './core/config/auth.interceptor';
-
+import {ConfirmationService} from 'primeng/api';
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
 }
@@ -39,12 +38,13 @@ export function HttpLoaderFactory(http: HttpClient) {
     AppRoutingModule,
     UserIdleModule.forRoot({ idle: 300, timeout: 1, ping: null }),
     HttpClientModule,
-    AppCommonModule,
+    AppCommonModule
   ],
   exports: [],
   providers: [
     MessageService,
     AuthGuard,
+    ConfirmationService,
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
   ],

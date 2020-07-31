@@ -22,7 +22,12 @@ export class OcorrenciaService extends BaseResourceService<Ocorrencia>{
     return this.http.get<Combo[]>(`${this.apiPath}/tipos`)
   }
 
-  salvar() {
-    return this.http.post(`${this.apiPath}`, {})
+  salvar(value: Object) {
+    return this.http.post(`${this.apiPath}`, value)
   }
+
+  
+  delete(id): Observable<any> {
+    return this.http.delete(`${this.apiPath}/${id}`);
+}
 }

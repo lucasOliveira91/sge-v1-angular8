@@ -8,10 +8,10 @@ import { BaseResourceService } from 'src/app/core/services/base-resource.service
 export class AutenticacaoService extends BaseResourceService<Object>{
 
   constructor(protected injector: Injector) {
-    super('j_spring_security_check', injector)
+    super('login', injector)
   }
 
   login(user: string, pass: string ) {
-    return this.http.post(`${this.apiPath}?j_username=${user}&j_password=${pass}`, null);
+    return this.http.post(`${this.apiPath}?username=${user}&password=${pass}`, null);
   }
 }

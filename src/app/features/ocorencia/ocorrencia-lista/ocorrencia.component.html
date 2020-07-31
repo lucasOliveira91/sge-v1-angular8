@@ -4,7 +4,7 @@
     <div class="p-grid">
         <div class="p-col"></div>
         <div class="p-col"></div>
-        <div class="p-col-2">
+        <div class="p-col-12 p-xl-2  p-sm-3">
             <button pButton type="button" label="Incluir" [routerLink]="'ocorrencia'" class="ui-button-raised"></button>
         </div>
     </div>
@@ -12,19 +12,37 @@
     <p-table [value]="ocorrencias" [paginator]="true" [rows]="pageSize">
         <ng-template pTemplate="header">
             <tr>
+                <th class="col-date">
+                    Data
+                </th>
                 <th *ngFor="let col of columns">
                     {{col.header}}
+                </th>
+                <th class="col-options">
+                    Opções
                 </th>
             </tr>
         </ng-template>
         <ng-template pTemplate="body" let-ocorrencia>
             <tr>
+                <td class="center">
+                    {{ocorrencia.dhOcorrencia | date: 'dd/MM/yyyy HH:mm'}}
+                </td>
                 <td *ngFor="let col of columns">
                     <div *ngIf="col.field != 'dhOcorrencia'">{{ocorrencia[col.field]}}</div>
-                    <div *ngIf="col.field == 'dhOcorrencia'">{{ocorrencia[col.field] | date: 'dd/MM/yyyy HH:mm'}}</div>
-
+                </td>
+                <td class="center">
+                    <p-button icon="pi pi-trash" (click)="confirmaExclusao(ocorrencia)"></p-button>
                 </td>
             </tr>
         </ng-template>
     </p-table>
+
+    <p-confirmDialog #cd header="Confirmação" icon="pi pi-exclamation-triangle">
+        <p-footer>
+            <button type="button" pButton icon="pi pi-times" label="Não" (click)="cd.reject()"></button>
+            <button type="button" pButton icon="pi pi-check" label="Sim" (click)="cd.accept()"></button>
+        </p-footer>
+    </p-confirmDialog>
 </p-panel>
+

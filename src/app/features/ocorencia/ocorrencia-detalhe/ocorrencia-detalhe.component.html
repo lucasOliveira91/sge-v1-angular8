@@ -1,19 +1,24 @@
-<div class="p-field p-grid">
-    <label for="firstname3" class="p-col-fixed" style="width:100px">Tipo de Ocorrência</label>
-    <div class="p-col">
-        <p-dropdown [options]="tiposOcorrencias" placeholder="Selecione..."></p-dropdown> 
+<form [formGroup]="form" novalidate>
+    <div class="p-field p-grid">
+        <label for="firstname3" class="p-col-fixed" style="width:100px">Tipo de Ocorrência</label>
+        <div class="p-col">
+            <p-dropdown [options]="tiposOcorrencias" formControlName="coTipoOcorrencia" placeholder="Selecione...">
+            </p-dropdown>
+        </div>
     </div>
-</div>
-<div class="p-field p-grid">
-    <label for="lastname3" class="p-col-fixed" style="width:100px">Descrição</label>
-    <div class="p-col">
-        <textarea [rows]="5" [cols]="30" pInputTextarea autoResize="autoResize"></textarea>
+    <div class="p-field p-grid">
+        <label for="lastname3" class="p-col-fixed" style="width:100px">Descrição</label>
+        <div class="p-col">
+            <textarea [rows]="5" [cols]="30" pInputTextarea autoResize="autoResize"
+                formControlName="txOcorrencia"></textarea>
+        </div>
     </div>
-</div>
-<div class="p-grid">
-    <div class="p-col"></div>
-    <div class="p-col"></div>
-    <div class="p-col-2">
-        <button pButton type="button" label="Salvar"  class="ui-button-raised"></button>
+    <div class="p-grid">
+        <div class="p-col"></div>
+        <div class="p-col"></div>
+        <div class="p-col-2">
+            <button pButton type="button" label="Salvar" (click)="salvar()" [disabled]="form.invalid"
+                class="ui-button-raised"></button>
+        </div>
     </div>
-</div>
+</form>

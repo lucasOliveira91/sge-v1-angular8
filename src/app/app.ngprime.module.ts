@@ -16,7 +16,7 @@ import { SidebarModule } from 'primeng/sidebar';
 import { DynamicDialogModule } from 'primeng/dynamicdialog';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { MessagesModule } from 'primeng/messages';
-import { DropdownModule } from 'primeng';
+import { DropdownModule, ConfirmDialogModule } from 'primeng';
 
 @NgModule({
     exports: [
@@ -37,7 +37,8 @@ import { DropdownModule } from 'primeng';
         DynamicDialogModule,
         InputTextareaModule,
         MessagesModule,
-        DropdownModule
+        DropdownModule,
+        ConfirmDialogModule
     ]
 })
 export class NgPrimeModule { }

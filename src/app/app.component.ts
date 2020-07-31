@@ -9,7 +9,7 @@ import { SessionService } from 'src/app/core/services/session.service';
   styleUrls: ['app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = 'Ng-Prime';
+  title = 'Sistema de Gerenciamento Escolar';
   showLoader: boolean;
   theme: string;
 
@@ -22,7 +22,7 @@ export class AppComponent implements OnInit {
       this.theme = theme;
       this.themeService.selectTheme(theme);
     } else {
-      this.theme = "theme-teal";
+      this.theme = "theme-dark";
     }
   }
 
